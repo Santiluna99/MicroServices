@@ -40,7 +40,7 @@ public class DeliveriesUsersDetailsService implements UserDetailsService {
         var password = "$2a$10$gosn402nuWoA24s/7F9CJ.OJlgs4aJNCJ7yL3X29zeUP5axiEuucG"; // PASS ENCRIPTADA
 
         Usuario user = new Usuario(
-                "Flechi",
+                "SANTI",
                 password,
                 Set.of("USER")
         );

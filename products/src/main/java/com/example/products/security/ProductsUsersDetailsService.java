@@ -15,13 +15,13 @@ public class ProductsUsersDetailsService implements UserDetailsService{
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        var usuario = getById(username); // Busca el usuario por nombre de usuario.
+        var usuario = getById(username); // BUSCAR USER POR USERNAME
 
         if (usuario == null) {
-            throw new UsernameNotFoundException(username); // Si el usuario no se encuentra, lanza una excepción.
+            throw new UsernameNotFoundException(username); // EN CASO NEGATIVO LANZA EXCEPTION
         }
 
-        return User // Construye y retorna un objeto UserDetails con los datos del usuario.
+        return User // RETORNA OBJETO CON DATOS DEL USER
                 .withUsername(username)
                 .password(usuario.password())
                 .roles(usuario.roles().toArray(new String[0]))
@@ -30,20 +30,20 @@ public class ProductsUsersDetailsService implements UserDetailsService{
 
     public record Usuario(String username, String password, Set<String> roles) {};
 
-    //busqueda de ususario
+    //BUSCAR USER
     public static Usuario getById(String username) {
 
-        var password = "$2a$10$gosn402nuWoA24s/7F9CJ.OJlgs4aJNCJ7yL3X29zeUP5axiEuucG"; // Contraseña encriptada
+        var password = "$2a$10$gosn402nuWoA24s/7F9CJ.OJlgs4aJNCJ7yL3X29zeUP5axiEuucG"; // PASS ENCRIPTADA
 
         Usuario user = new Usuario(
-                "Flechi",
+                "SANTI",
                 password,
                 Set.of("USER")
         );
 
-        var usuarios = List.of(user); // Lista de usuarios.
+        var usuarios = List.of(user); // USERS
 
-        return usuarios  // Busca y retorna el usuario que coincide con el nombre de usuario.
+        return usuarios  // USER QUE CONCIDDE CON USERNAME
                 .stream()
                 .filter(e -> e.username().equals(username))
                 .findFirst()

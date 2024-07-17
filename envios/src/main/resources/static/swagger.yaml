@@ -2,41 +2,41 @@
 openapi: 3.0.1
 info:
   version: "1.0.0"
-  title: Orders API
-  description: API para la gestión de órdenes
+  title: Deliveries API
+  description: API para la gestión de envios
 servers:
-  - url: http://localhost:8080
+  - url: http://localhost:8085
     description: Local server
 paths:
   /api/orders:
     get:
-      summary: Obtener órdenes
-      description: Retorna una lista de órdenes
+      summary: Obtener envios
+      description: Retorna una lista de envios
       responses:
         '200':
-          description: Lista de órdenes
+          description: Lista de envios
           content:
             application/json:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Order'
+                  $ref: '#/components/schemas/Delivery'
     post:
-      summary: Crear nueva orden
-      description: Crea una nueva orden
+      summary: Crear nueva envio
+      description: Crea una nueva envio
       requestBody:
         required: true
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/Delivery'
       responses:
         '201':
-          description: Orden creada exitosamente
+          description: Envio creada exitosamente
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/Delivery'
         '400':
           description: Error de validación
           content:
@@ -46,8 +46,8 @@ paths:
                 items:
   /api/orders/{id}:
     put:
-      summary: Actualizar orden
-      description: Actualiza una orden existente
+      summary: Actualizar envio
+      description: Actualiza una envio existente
       parameters:
         - name: id
           in: path
@@ -60,23 +60,23 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Order'
+              $ref: '#/components/schemas/Delivery'
       responses:
         '200':
-          description: Orden actualizada exitosamente
+          description: Envio actualizada exitosamente
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/Delivery'
         '404':
-          description: Orden no encontrada
+          description: Envio no encontrada
           content:
             application/json:
               schema:
                 type: string
     delete:
-      summary: Eliminar orden
-      description: Elimina una orden existente
+      summary: Eliminar envio
+      description: Elimina una envio existente
       parameters:
         - name: id
           in: path
@@ -86,12 +86,12 @@ paths:
             format: int64
       responses:
         '204':
-          description: Orden eliminada exitosamente
+          description: Envio eliminada exitosamente
         '404':
-          description: Orden no encontrada
+          description: Envio no encontrada
     get:
-      summary: Comprobar existencia de orden
-      description: Verifica si una orden existe por su ID
+      summary: Comprobar existencia de envio
+      description: Verifica si una envio existe por su ID
       parameters:
         - name: id
           in: path
@@ -101,17 +101,17 @@ paths:
             format: int64
       responses:
         '200':
-          description: Orden encontrada
+          description: Envio encontrada
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Order'
+                $ref: '#/components/schemas/Delivery'
         '404':
-          description: Orden no encontrada
+          description: Envio no encontrada
 
 components:
   schemas:
-    Order:
+    Delivery:
       type: object
       properties:
         id:
@@ -127,6 +127,9 @@ components:
         customerName:
           type: string
           example: "Nombre del cliente"
+        home:
+          type: string
+          example: "Domicilio"
         totalAmount:
           type: number
           format: double

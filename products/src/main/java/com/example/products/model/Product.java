@@ -7,16 +7,16 @@ import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
-@Table(name = "product") // el nombre que queremos que se cree en la base de datos
-@Getter // genera los métodos getter
-@Setter // genera los métodos setter
-@AllArgsConstructor // genera los constructores con argumentos, inicializando los campos
-@NoArgsConstructor // genera los constructores sin argumentos
-@Builder // patrón de diseño builder
+@Table(name = "product") // NOMBRE DB
+@Getter // METODO GET
+@Setter // METODO SET
+@AllArgsConstructor // CONSTRUCTOR CON ARGUMENTOS
+@NoArgsConstructor // CONSTRUCTOR SIN ARGUMENTOS
+@Builder // DISENO BUILDER
 
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // se genera automáticamente el id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // GENERA ID
     private Long id;
 
     @NotBlank(message = "Este campo no puede estar vacío")

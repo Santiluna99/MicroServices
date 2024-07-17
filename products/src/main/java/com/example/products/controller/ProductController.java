@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/products")//se define la ruta
+@RequestMapping("api/products")//RUTA
 @RequiredArgsConstructor
 public class ProductController {
 
     private final ProductService productService;
 
-    //contrl para traer los productos
+    //TRAER PROD
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<Product> getProducts (){
         return this.productService.getProducts();
     }
 
-    //ctrl para agregar producto
+    //AGREGAR PRD
     @PostMapping
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Object> createProducts (@Valid @RequestBody Product product, BindingResult bindingResult) {
@@ -40,21 +40,21 @@ public class ProductController {
         return productService.createProduct(product);
     }
 
-    //ctrl para actualizar producto
+    //ACTUALIZAR PROD
     @PutMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Object> updateProduct(@PathVariable("id") Long id, @RequestBody Product updatedProduct) {
         return productService.updateProduct(id, updatedProduct);
     }
 
-    //ctrl de eliminar producto
+    //ELIMINAR PROD
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public ResponseEntity<Object> deleteProduct(@PathVariable("id") Long id) {
         return productService.deleteProduct(id);
     }
 
-    //ctrl para buscar product
+    //BUSCAR PROD
     @GetMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<Object> findByIdProduct(@PathVariable("id") Long id) {

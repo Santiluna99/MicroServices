@@ -49,6 +49,7 @@ public class DeliveriesService {
             DeliveriesModel existingDelivery = existingDeliveryOptional.get();
             existingDelivery.setProductIds(updatedDelivery.getProductIds());
             existingDelivery.setCustomerName(updatedDelivery.getCustomerName());
+            existingDelivery.setHome(updatedDelivery.getHome());
             existingDelivery.setTotalAmount(updatedDelivery.getTotalAmount());
             existingDelivery.setStatus(updatedDelivery.getStatus());
 

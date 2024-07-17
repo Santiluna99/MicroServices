@@ -37,7 +37,7 @@ services:
       POSTGRES_USER: java
       POSTGRES_PASSWORD: java123
     ports:
-      - 6000:6000  # Mapea el puerto 3000 del host al puerto 5432 del contenedor
+      - 6000:6000  # Mapea el puerto 6000 del host al puerto 6000 del contenedor
     expose:
-      - 6000  # Expone el puerto 5432 del contenedor a otros servicios en la misma red de Docker
-    command: -p 6000  # Este comando se asegura que PostgreSQL use el puerto 5432 dentro del contenedor
+      - 6000  # Expone el puerto 6000 del contenedor a otros servicios en la misma red de Docker
+    command: -p 6000  # Este comando se asegura que PostgreSQL use el puerto 6000 dentro del contenedor

@@ -22,7 +22,7 @@ public class SecurityConfig {
     @Autowired
     private ProductJWTRequestFilters productJWTRequestFilters ;
 
-    //metodo de seguridad para la web
+    //SEG WEB
     @Bean
     SecurityFilterChain web(HttpSecurity http) throws Exception {
         http
@@ -48,18 +48,18 @@ public class SecurityConfig {
         return http.build();
     }
 
-    // metodo de cifrado mediante bcrypt
+    // CIFRADO BYCRIPT
     @Bean
     PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-    //metodo para gestionar autenticacion
+    //AUTENTICACION
     @Bean
     AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-    //metodopara cifrar y crear una contraseña especifica
+    //CIFRAR PASS
     public static void main (String[] args) {
     System.out.println("pass: " + new BCryptPasswordEncoder().encode("12345678"));
     }

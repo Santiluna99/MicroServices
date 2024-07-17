@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@EnableJpaRepositories("com.example.products.repository") // Ubicación de tus repositorios
+@EnableJpaRepositories("com.example.products.repository") // UBIC DE REPOS
 @EntityScan("com.example.products.model")
 public class ProductsApplication {
 

@@ -25,6 +25,9 @@ public class DeliveriesModel {
     @NotBlank(message = "Este campo no puede estar vacío")
     private String customerName;
 
+    @NotBlank(message = "Este campo no puede estar vacío")
+    private String home;
+
     @NotNull(message = "Este campo no puede ser nulo")
     @DecimalMin(value = "0.0", message = "Debe ser mayor o igual a cero")
     private Double totalAmount;

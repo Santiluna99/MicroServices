@@ -23,7 +23,7 @@ public class ProductJWTRequestFilters extends OncePerRequestFilter {
     @Autowired
     private ProductsJWTUtilService jwtUtilService;
 
-    //filtro de autorizacion jwt
+    //AUTH JWT
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws ServletException, IOException {
 

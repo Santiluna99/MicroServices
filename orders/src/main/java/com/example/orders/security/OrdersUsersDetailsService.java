@@ -12,17 +12,17 @@ import java.util.Set;
 
 @Service
 public class OrdersUsersDetailsService implements UserDetailsService {
-    //carga de de usuario
+    //CARGA USER
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-        var usuario = getById(username); // Busca el usuario por nombre de usuario.
+        var usuario = getById(username); // BUSCAR USER POR ID
 
         if (usuario == null) {
-            throw new UsernameNotFoundException(username); // Si el usuario no se encuentra, lanza una excepción.
+            throw new UsernameNotFoundException(username); // CASO CONTRARIO LARGA EXCEPTION
         }
 
-        return User // Construye y retorna un objeto UserDetails con los datos del usuario.
+        return User // RETORNA OBJETO CON DETALLES DE USER
                 .withUsername(username)
                 .password(usuario.password())
                 .roles(usuario.roles().toArray(new String[0]))
@@ -34,20 +34,20 @@ public class OrdersUsersDetailsService implements UserDetailsService {
 
     ;
 
-    //busqueda de ususario
+    //BUSQUEDA USER
     public static Usuario getById(String username) {
 
-        var password = "$2a$10$gosn402nuWoA24s/7F9CJ.OJlgs4aJNCJ7yL3X29zeUP5axiEuucG"; // Contraseña encriptada
+        var password = "$2a$10$gosn402nuWoA24s/7F9CJ.OJlgs4aJNCJ7yL3X29zeUP5axiEuucG"; // PASS ENCRIPTADA
 
         Usuario user = new Usuario(
-                "Flechi",
+                "SANTI",
                 password,
                 Set.of("USER")
         );
 
-        var usuarios = List.of(user); // Lista de usuarios.
+        var usuarios = List.of(user); // LISTA USER
 
-        return usuarios  // Busca y retorna el usuario que coincide con el nombre de usuario.
+        return usuarios  // RETORNA USER QUE COINCIDA CON USERNAME
                 .stream()
                 .filter(e -> e.username().equals(username))
                 .findFirst()

@@ -41,7 +41,6 @@ public class ProductsJWTUtilService {
 
     public String generateToken(UserDetails userDetails) {
         Map<String, Object> claims = new HashMap<>();
-        // Agregando informacion adicional como "claim"
         var rol = userDetails.getAuthorities().stream().collect(Collectors.toList()).get(0);
         claims.put("rol", rol);
         return createToken(claims, userDetails.getUsername());

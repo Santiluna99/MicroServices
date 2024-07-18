@@ -11,7 +11,7 @@ import java.util.Set;
 
 @Service
 public class ProductsUsersDetailsService implements UserDetailsService{
-    //carga de de usuario
+    //CARGA DE USER
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 

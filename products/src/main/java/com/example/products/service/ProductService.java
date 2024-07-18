@@ -17,18 +17,18 @@ public class ProductService {
 
     private final ProductRepository productRepository;
 
-    //metodo para traer los productos
+    //TRAER PROD
     public List<Product> getProducts (){
         return productRepository.findAll();
     }
 
-    //metodo para crear
+    //CREAR
     public ResponseEntity<Object> createProduct(Product product) {
         productRepository.save(product);
         return new ResponseEntity<>("Producto creado", HttpStatus.CREATED);
     }
 
-    //meotdo de update
+    //UPDATE PROD
     public ResponseEntity<Object> updateProduct(Long id, Product updatedProduct) {
         Optional<Product> existingProductOptional = productRepository.findById(id);
         if (existingProductOptional.isPresent()) {
@@ -46,7 +46,7 @@ public class ProductService {
         }
     }
 
-    //metodo para eliminar
+    //DELETE PROD
     public ResponseEntity<Object> deleteProduct(Long id) {
         Optional<Product> existingProductOptional = productRepository.findById(id);
         if (existingProductOptional.isPresent()) {
@@ -57,7 +57,7 @@ public class ProductService {
         }
     }
 
-    //metodo para concectarse cpon el microservicio ordenes
+    //BUSCAR PROD
     public ResponseEntity<Object> findProduct(Long id) {
         Optional<Product> existingProductOptional = productRepository.findById(id);
         if (existingProductOptional.isPresent()) {

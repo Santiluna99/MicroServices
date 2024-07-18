@@ -1,19 +1,19 @@
-version: '3'
-services:
+version: '3' ##VERSION DE DOCKER
+services:     #SE DEFINEN LOS SERVICIOS A UTILIZAR
 
   db-products:
     container_name: db-products
     image: postgres:15.2
     restart: unless-stopped
-    environment:
+    environment: ### VARIABLES DE ENTORNO
       POSTGRES_DB: ms_products
       POSTGRES_USER: java
       POSTGRES_PASSWORD: java123
     ports:
-      - 5431:5432  # Mapea el puerto 5431 del host al puerto 5432 del contenedor
+      - 5431:5432  # MAPEO DE PUERTO
     expose:
-      - 5432  # Expone el puerto 5432 del contenedor a otros servicios en la misma red de Docker
-    command: -p 5432  # Este comando se asegura que PostgreSQL use el puerto 5432 dentro del contenedor
+      - 5432  # EXPONE PUERTO
+    command: -p 5432  # ASEGURA QUE SE USE ESE PUERTO
 
   db-orders:
     container_name: db-orders
@@ -24,10 +24,10 @@ services:
       POSTGRES_USER: java
       POSTGRES_PASSWORD: java123
     ports:
-      - 3000:5432  # Mapea el puerto 3000 del host al puerto 5432 del contenedor
+      - 3000:5432  # MAPEO DE PUERTO
     expose:
-      - 5432  # Expone el puerto 5432 del contenedor a otros servicios en la misma red de Docker
-    command: -p 5432  # Este comando se asegura que PostgreSQL use el puerto 5432 dentro del contenedor
+      - 5432  # EXPONE PUERTO
+    command: -p 5432  # ASEGURA QUE SE USE ESE PUERTO
   db-deliveries:
     container_name: db-deliveries
     image: postgres:15.2
@@ -37,7 +37,7 @@ services:
       POSTGRES_USER: java
       POSTGRES_PASSWORD: java123
     ports:
-      - 6000:6000  # Mapea el puerto 6000 del host al puerto 6000 del contenedor
+      - 6000:6000  # MAPEA PUERTO
     expose:
-      - 6000  # Expone el puerto 6000 del contenedor a otros servicios en la misma red de Docker
-    command: -p 6000  # Este comando se asegura que PostgreSQL use el puerto 6000 dentro del contenedor
+      - 6000
+    command: -p 6000

@@ -19,12 +19,12 @@ public class OrdersService {
     private final RestTemplate restTemplate = new RestTemplate();
     private final OrdersRepository ordersRepository;
 
-    // Método para traer las órdenes
+    // TRAER ORDENES
     public List<OrdersModel> getOrders() {
         return ordersRepository.findAll();
     }
 
-    // Método para crear una orden
+    // CREAR ORDEN
     public ResponseEntity<Object> createOrder(OrdersModel order) {
         Long productIds = order.getProductIds();
         String url = "http://localhost:8080/api/products/" + productIds;
@@ -42,7 +42,7 @@ public class OrdersService {
         }
     }
 
-    // Método para actualizar una orden
+    // UPDATE ORDEN
     public ResponseEntity<Object> updateOrder(Long id, OrdersModel updatedOrder) {
         Optional<OrdersModel> existingOrderOptional = ordersRepository.findById(id);
         if (existingOrderOptional.isPresent()) {
@@ -60,7 +60,7 @@ public class OrdersService {
         }
     }
 
-    // Método para eliminar una orden
+    // DELETE ORDEN
     public ResponseEntity<Object> deleteOrder(Long id) {
         Optional<OrdersModel> existingOrderOptional = ordersRepository.findById(id);
         if (existingOrderOptional.isPresent()) {
@@ -71,7 +71,7 @@ public class OrdersService {
         }
     }
 
-    // Método para buscar una orden por ID
+    // BUSCAR ORDEN
     public ResponseEntity<Object> findOrder(Long id) {
         Optional<OrdersModel> existingOrderOptional = ordersRepository.findById(id);
         if (existingOrderOptional.isPresent()) {

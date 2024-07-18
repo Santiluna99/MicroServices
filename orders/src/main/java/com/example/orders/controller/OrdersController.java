@@ -14,20 +14,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("api/orders") // se define la ruta
+@RequestMapping("api/orders") // RUTA
 @RequiredArgsConstructor
 public class OrdersController {
 
     private final OrdersService ordersService;
 
-    // Controlador para traer las órdenes
+    // CONTROLADOR PARA ORDENES
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<OrdersModel> getOrders() {
         return this.ordersService.getOrders();
     }
 
-    // Controlador para agregar una orden
+    // AGREGAR ORDEN
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public ResponseEntity<Object> createOrder(@Valid @RequestBody OrdersModel order, BindingResult bindingResult) {
@@ -40,19 +40,19 @@ public class OrdersController {
         return ordersService.createOrder(order);
     }
 
-    // Controlador para actualizar una orden
+    // ACTUALIZAR ORDEN
     @PutMapping("/{id}")
     public ResponseEntity<Object> updateOrder(@PathVariable("id") Long id, @RequestBody OrdersModel updatedOrder) {
         return ordersService.updateOrder(id, updatedOrder);
     }
 
-    // Controlador para eliminar una orden
+    // ELIMINAR ORDEN
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteOrder(@PathVariable("id") Long id) {
         return ordersService.deleteOrder(id);
     }
 
-    // Controlador para buscar una orden por ID
+    // BUSCAR ORDEN POR ID
     @GetMapping("/{id}")
     public ResponseEntity<Object> findByIdOrder(@PathVariable("id") Long id) {
         return ordersService.findOrder(id);

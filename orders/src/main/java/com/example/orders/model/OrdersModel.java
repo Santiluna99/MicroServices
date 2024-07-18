@@ -7,20 +7,20 @@ import lombok.*;
 import java.util.List;
 
 @Entity
-@Table(name = "orders") // el nombre que queremos que se cree en la base de datos
-@Getter // genera los métodos getter
-@Setter // genera los métodos setter
-@AllArgsConstructor // genera los constructores con argumentos, inicializando los campos
-@NoArgsConstructor // genera los constructores sin argumentos
-@Builder // patrón de diseño builder
+@Table(name = "orders") // NOMBRE DE DB
+@Getter // METODO GET
+@Setter // METODO SET
+@AllArgsConstructor // CONSTRUCTOR CON ARGUMENTOS
+@NoArgsConstructor // CONSTRUCTOR SIN ARGUMENTOS
+@Builder // DISENO BUILDER
 
 public class OrdersModel {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // se genera automáticamente el id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // SE GENERA ID
     private Long id;
 
     @NotNull(message = "Este campo no puede estar vacío")
-    private Long productIds; // Lista de IDs de productos que forman parte de la orden
+    private Long productIds; // LISTA DE ORDENES
 
     @NotBlank(message = "Este campo no puede estar vacío")
     private String customerName;
